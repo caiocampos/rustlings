@@ -1,5 +1,6 @@
 // result1.rs
-// Make this test pass! Scroll down for hints :)
+
+use std::cmp::Ordering;
 
 #[derive(PartialEq,Debug)]
 struct PositiveNonzeroInteger(u64);
@@ -12,12 +13,18 @@ enum CreationError {
 
 impl PositiveNonzeroInteger {
     fn new(value: i64) -> Result<PositiveNonzeroInteger, CreationError> {
+        /*
         if value == 0 {
             Err(CreationError::Zero)
         } else if value < 0 {
             Err(CreationError::Negative)
         } else {
             Ok(PositiveNonzeroInteger(value as u64))
+        }*/
+        match value.cmp(&0) {
+            Ordering::Less => Err(CreationError::Negative),
+            Ordering::Greater => Ok(PositiveNonzeroInteger(value as u64)),
+            Ordering::Equal => Err(CreationError::Zero),
         }
     }
 }
@@ -28,22 +35,3 @@ fn test_creation() {
     assert_eq!(Err(CreationError::Negative), PositiveNonzeroInteger::new(-10));
     assert_eq!(Err(CreationError::Zero), PositiveNonzeroInteger::new(0));
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// `PositiveNonzeroInteger::new` is always creating a new instance and returning an `Ok` result.
-// It should be doing some checking, returning an `Err` result if those checks fail, and only
-// returning an `Ok` result if those checks determine that everything is... okay :)

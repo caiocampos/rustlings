@@ -4,13 +4,11 @@ use std::num::ParseIntError;
 
 fn main() {
     let mut tokens = 100;
-    let pretend_user_input = "8";
+    let pretend_user_input = "3";
 
     let cost = match total_cost(pretend_user_input) {
         Ok(val) => val,
-        Err(error) => {
-            panic!(error)
-        },
+        Err(error) => panic!("Erro ao tentar calcular o custo: {:?}", error),
     };
 
     if cost > tokens {
