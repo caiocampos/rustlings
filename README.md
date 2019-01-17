@@ -6,6 +6,9 @@ order to make changes here rather than committing the changes directly.
 
 # rustlings
 
+[<img src="https://api.travis-ci.org/caiocampos/guessing_game.svg?branch=master">](https://travis-ci.org/caiocampos/guessing_game)
+[![License](https://img.shields.io/github/license/caiocampos/guessing_game.svg)](LICENSE)
+
 Small exercises to get you used to reading and writing Rust code. Includes practice reading and
 responding to compiler messages!
 
