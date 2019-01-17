@@ -9,4 +9,4 @@ rust:
 script:
   - cargo update
   - cargo build
-- cargo test
+  - cargo test
